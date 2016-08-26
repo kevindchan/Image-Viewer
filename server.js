@@ -13,27 +13,37 @@ var requestHandler = function(request, response) {
     'access-control-allow-methods': 'GET, POST, PUT, DELETE, OPTIONS',
     'access-control-allow-headers': 'content-type, accept',
     'access-control-max-age': 10,
-    'content-type': 'text/html'
+    'content-type': 'image/jpeg'
   }
 
-  if (request.url === '/hello') {
-    fs.readFile('./hello.html', 'utf8', function(err, data) {
+  if (request.url === '/1') {
+    fs.readFile('./images/1.jpg', function(err, data) {
       response.writeHead(200, headers);
       response.end(data);
     });
+  } else if (request.url === '/2') {
+    fs.readFile('./images/2.jpg', function(err, data) {
+      response.writeHead(200, headers);
+      response.end(data);
+    });
+  } else if (request.url === '/3') {
+    fs.readFile('./images/3.jpg', function(err, data) {
+      response.writeHead(200, headers);
+      response.end(data);
+    });
+  } else if (request.url === '/4') {
+    fs.readFile('./images/4.jpg', function(err, data) {
+      response.writeHead(200, headers);
+      response.end(data);
+    });
+  } else if (request.url === '/5') {
+    fs.readFile('./images/5.jpg', function(err, data) {
+      response.writeHead(200, headers);
+      response.end(data);
+    });
+  } else {
+    response.end('404!');
   }
-
-  // else if (request.url === '/goodbye') {
-  //   var html = fs.readFileSync('./goodbye.html');
-  //   response.writeHead(200, headers);
-  //   response.end(html);
-  // } else if (request.url === '/' || request.url === '/index') {
-  //   var html = fs.readFileSync('./index.html');
-  //   response.writeHead(200, headers);
-  //   response.end(html);
-  // } else {
-  //   response.writeHead(404);
-  // }
 
 
 
