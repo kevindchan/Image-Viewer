@@ -4,7 +4,9 @@ class App extends React.Component {
 
     this.state = {
       click: {
-        url: 'http://cdn3-www.dogtime.com/assets/uploads/2015/03/file_21300_column_national-cute-puppy-day-4.jpg'
+        title: 'Bulldog',
+        url: 'http://cdn3-www.dogtime.com/assets/uploads/2015/03/file_21300_column_national-cute-puppy-day-4.jpg',
+        rating: 5
       }
     }
   };
@@ -12,9 +14,7 @@ class App extends React.Component {
   onImageListClick(image) {
     console.log('clicked!', image)
     this.setState({
-      click: {
-        url: image
-      }
+      click: image
     });
   };
 
@@ -22,8 +22,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div id="image">
-          <Image url={this.state.click.url} />
+        <div>
+          {console.log('state: ', this.state.click)}
+          <Image image={this.state.click} />
         </div>
         <div id ="list">
           <ImageList list={window.ImageData} onClick={this.onImageListClick.bind(this)} />
